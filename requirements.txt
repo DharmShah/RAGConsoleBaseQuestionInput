@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+cohere
+pypdf
+langchain
+faiss-cpu
+
+
