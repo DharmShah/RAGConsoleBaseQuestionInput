@@ -3,7 +3,8 @@ uvicorn
 python-multipart
 cohere
 pypdf
-langchain
 faiss-cpu
-
-
+langchain
+langchain-community
+langchain-core
+langchain-text-splitters

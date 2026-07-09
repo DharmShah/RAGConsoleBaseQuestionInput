@@ -11,8 +11,13 @@ def main():
         return
 
     print("Processing file...")
-    text = save_file_and_load_text(file_path)
-    vector_store = build_vector_store(text)
+    try:
+        text = save_file_and_load_text(file_path)
+        vector_store = build_vector_store(text)
+    except (ValueError, RuntimeError) as error:
+        print(f"Error: {error}")
+        return
+
     print("File processed. You can now ask questions!")
 
     while True:
@@ -20,6 +25,10 @@ def main():
         if query.lower() == 'exit':
             print("Bye! 👋")
             break
+
+        if not query:
+            print("Please enter a question.")
+            continue
 
         answer = retrieve_answer(query, vector_store)
         print(f"\nAnswer: {answer}")
